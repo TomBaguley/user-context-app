@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useUser } from "./UserContext";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 const AnimalPictureDisplay = () => {
     const {user} = useUser();
-    const [url, setUrl] = useState('https://api.thecatapi.com/v1/images/search');
+    const [url, setUrl] = useState('');
     const [picUrl, setPicUrl] = useState(null);
     const [tempUser,setTempUser] = useState(null);
 
@@ -27,6 +28,7 @@ const AnimalPictureDisplay = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            
             try {
                 console.log(user)
                 console.log(url);
