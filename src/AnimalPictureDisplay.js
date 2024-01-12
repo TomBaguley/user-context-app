@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useUser } from "./UserContext";
 
 const AnimalPictureDisplay = () => {
-    const { user } = useUser();
+    const {user} = useUser();
     const [url, setUrl] = useState('https://api.thecatapi.com/v1/images/search');
     const [picUrl, setPicUrl] = useState(null);
 
@@ -30,7 +30,7 @@ const AnimalPictureDisplay = () => {
         };
         fetchData();
         
-    }, [user,'Tom']);
+    }, [{user}]);
     
     return (
         <img src = {picUrl}/>
