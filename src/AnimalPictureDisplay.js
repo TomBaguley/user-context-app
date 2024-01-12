@@ -23,6 +23,8 @@ const AnimalPictureDisplay = () => {
         updateUrl();
     }, [{user}]);
 
+    //needed user to be in {} ??
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -36,10 +38,11 @@ const AnimalPictureDisplay = () => {
             }
         };
         fetchData();
-        
-
-
     }, [url]);
+
+
+    //made a useEffect method that listens to user for the url rather than the fetch so the url will constantly update but 
+    //the value won't change unless the user changes so the fetch only runs once per user.
 
     
     return (
