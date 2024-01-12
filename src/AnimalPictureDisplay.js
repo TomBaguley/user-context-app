@@ -14,7 +14,7 @@ const AnimalPictureDisplay = () => {
         const fetchData = async () => {
             try {
                 console.log(user)
-                if(user === 'Tom'){
+                if(user == 'Tom'){
                     setUrl('https://api.thecatapi.com/v1/images/search');
                 }
                 else{
