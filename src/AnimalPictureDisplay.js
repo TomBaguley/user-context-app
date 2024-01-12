@@ -31,6 +31,7 @@ const AnimalPictureDisplay = () => {
         fetchData();
         
     }, [{user}]);
+    //is there a way to just take the value of user and run the useEffect when that changes rather than the state itself??
     
     return (
         <img src = {picUrl}/>
