@@ -5,21 +5,28 @@ const AnimalPictureDisplay = () => {
     const {user} = useUser();
     const [url, setUrl] = useState('https://api.thecatapi.com/v1/images/search');
     const [picUrl, setPicUrl] = useState(null);
+    const [tempUser,setTempUser] = useState(null);
 
    
     // console.log(user);
     
 
     useEffect(() => {
+        const updateUrl = () => {
+            if(user == 'Tom'){
+                setUrl('https://api.thecatapi.com/v1/images/search');
+            }
+            else{
+                setUrl('https://api.thedogapi.com/v1/images/search');
+            }
+        };
+        updateUrl();
+    }, [{user}]);
+
+    useEffect(() => {
         const fetchData = async () => {
             try {
                 console.log(user)
-                if(user == 'Tom'){
-                    setUrl('https://api.thecatapi.com/v1/images/search');
-                }
-                else{
-                    setUrl('https://api.thedogapi.com/v1/images/search');
-                }
                 console.log(url);
                 const response = await fetch(url);
                 const data = await response.json();
@@ -30,7 +37,7 @@ const AnimalPictureDisplay = () => {
         };
         fetchData();
         
-    }, [{user}]);
+    }, [url]);
     
     return (
         <img src = {picUrl}/>
